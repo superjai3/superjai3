@@ -36,6 +36,13 @@ const superjai3 = {
 
 
 
+![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=superjai3&hide_progress=true)
+
+
+
+
+
+
 
 ## [Ariel Ayala](https://arielayala.bio.link/)
 ---
