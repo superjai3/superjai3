@@ -19,7 +19,4 @@ const superjai3 = {
 </a>
 </p>
 
-![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=superjai3&hide_progress=true)
-
-
 [![superjai3's GitHub stats](https://github-readme-stats.vercel.app/api?username=superjai3&theme=tokyonight&show_icons=true)](https://github.com/superjai3/github-readme-stats)
