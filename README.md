@@ -1,6 +1,6 @@
 ### Hi, I´m Jaime 👋
 
-**Software Engineer | Angular | Netcore**
+**Software Engineer | Java | .Net | Cobol | JS |
 
 ```javascript
 const superjai3 = {
