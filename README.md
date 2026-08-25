@@ -7,8 +7,8 @@
 <sub>*Insurance Business Analyst & .NET Full-Stack Developer — Zaragoza, España*</sub>
 
 <p>
-<a href="https://www.linkedin.com/in/TU-USUARIO-LINKEDIN/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
-<a href="mailto:TU-EMAIL@ejemplo.com"><img src="https://img.shields.io/badge/Contacto-EA4335?style=for-the-badge&logo=maildotru&logoColor=white" alt="Email" /></a>
+<a href="https://www.linkedin.com/in/jaimevaldes/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
+<a href="mailto:jaimevaldes71@gmail.com"><img src="https://img.shields.io/badge/Contacto-EA4335?style=for-the-badge&logo=maildotru&logoColor=white" alt="Email" /></a>
 <img src="https://img.shields.io/badge/Zaragoza%20·%20España-2E7D32?style=for-the-badge&logo=googlemaps&logoColor=white" alt="Zaragoza, España" />
 <img src="https://komarev.com/ghpvc/?username=superjai3&style=for-the-badge&color=58A6FF&label=VISITAS" alt="Visitas al perfil" />
 </p>
@@ -193,8 +193,8 @@ const jaime = {
 
 Si tenés un proyecto entre manos — una web, una migración, un sistema de seguros que hay que **entender antes de tocar** — escribime.
 
-<a href="https://www.linkedin.com/in/TU-USUARIO-LINKEDIN/"><img src="https://img.shields.io/badge/Escribime%20por%20LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
-<a href="mailto:TU-EMAIL@ejemplo.com"><img src="https://img.shields.io/badge/Mandame%20un%20mail-EA4335?style=for-the-badge&logo=maildotru&logoColor=white" alt="Email" /></a>
+<a href="https://www.linkedin.com/in/jaimevaldes/"><img src="https://img.shields.io/badge/Escribime%20por%20LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
+<a href="mailto:jaimevaldes71@gmail.com"><img src="https://img.shields.io/badge/Mandame%20un%20mail-EA4335?style=for-the-badge&logo=maildotru&logoColor=white" alt="Email" /></a>
 
 <br><br>
 
