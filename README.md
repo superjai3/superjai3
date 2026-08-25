@@ -23,11 +23,11 @@ Hoy reparto el tiempo entre **análisis funcional** y **desarrollo .NET / web fu
 
 <div align="center">
 
-### 👇 Todo lo de abajo se despliega — hacé clic
+## 🧭 Mi trabajo, en detalle
 
 </div>
 
-<details>
+<details open>
 <summary><b>🧑‍💻 &nbsp;Quién soy, en código</b></summary>
 
 <br>
@@ -52,7 +52,7 @@ const jaime = {
 
 </details>
 
-<details>
+<details open>
 <summary><b>🛠️ &nbsp;Stack — lo que uso de verdad</b></summary>
 
 <br>
@@ -131,7 +131,7 @@ const jaime = {
 
 </details>
 
-<details>
+<details open>
 <summary><b>🎓 &nbsp;Formación y práctica — cómo llegué hasta acá</b></summary>
 
 <br>
