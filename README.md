@@ -154,17 +154,16 @@ const jaime = {
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.vercel.app/api?username=superjai3&show_icons=true&count_private=true&include_all_commits=true&hide_border=true&theme=tokyonight&cache_seconds=86400" />
-  <img height="165" src="https://github-readme-stats.vercel.app/api?username=superjai3&show_icons=true&count_private=true&include_all_commits=true&hide_border=true&theme=default&cache_seconds=86400" alt="Estadísticas de GitHub de superjai3" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.vercel.app/api?username=superjai3&show_icons=true&include_all_commits=true&hide_border=true&theme=tokyonight&cache_seconds=86400" />
+  <img height="165" src="https://github-readme-stats.vercel.app/api?username=superjai3&show_icons=true&include_all_commits=true&hide_border=true&theme=default&cache_seconds=86400" alt="Estadísticas de GitHub de superjai3" />
 </picture>
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.vercel.app/api/top-langs/?username=superjai3&layout=compact&langs_count=8&hide_border=true&theme=tokyonight&cache_seconds=86400" />
   <img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=superjai3&layout=compact&langs_count=8&hide_border=true&theme=default&cache_seconds=86400" alt="Lenguajes más usados" />
 </picture>
 
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=superjai3&theme=tokyo-night&hide_border=true&area=true&custom_title=Actividad%20de%20contribuciones" alt="Gráfico de actividad" />
-
-<img src="https://github-profile-trophy.vercel.app/?username=superjai3&theme=tokyonight&no-frame=true&no-bg=true&margin-w=8&column=7" alt="Trofeos" />
+<img src="https://raw.githubusercontent.com/superjai3/superjai3/main/metrics/actividad.svg" alt="Calendario de contribuciones del último año" />
+<img src="https://raw.githubusercontent.com/superjai3/superjai3/main/metrics/lenguajes.svg" alt="Desglose de lenguajes por porcentaje" />
 
 </div>
 
