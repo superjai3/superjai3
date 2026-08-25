@@ -167,7 +167,7 @@ const jaime = {
 
 </div>
 
-<details>
+<details open>
 <summary><b>🐍 &nbsp;Mi jardín de contribuciones, comido por una serpiente</b></summary>
 
 <br>
