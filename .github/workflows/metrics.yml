@@ -8,10 +8,72 @@ on:
 jobs:
   generar:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     permissions:
       contents: write
+      issues: write
+    env:
+      TITULO_AVISO: "⚠️ El token METRICS_TOKEN ha caducado o no es válido"
     steps:
+      # Si el token caduca, lowlighter/metrics falla con "Bad credentials" tras
+      # 15 minutos de reintentos. Lo comprobamos antes: si no vale, se salta la
+      # generación (se conservan las últimas tarjetas buenas) y se abre un issue
+      # con las instrucciones para renovarlo, en lugar de romper el workflow.
+      - name: Comprobar el token de métricas
+        id: token
+        env:
+          METRICS_TOKEN: ${{ secrets.METRICS_TOKEN }}
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          estado=000
+          if [ -n "$METRICS_TOKEN" ]; then
+            estado=$(curl -sS -o /dev/null -D cabeceras.txt -w '%{http_code}' \
+              -H "Authorization: Bearer $METRICS_TOKEN" https://api.github.com/user || echo 000)
+          fi
+
+          aviso=$(gh issue list --state open --search "in:title METRICS_TOKEN" --json number,title \
+            --jq "map(select(.title == \"$TITULO_AVISO\"))[0].number // empty")
+
+          if [ "$estado" = "200" ]; then
+            echo "valido=true" >> "$GITHUB_OUTPUT"
+            if [ -n "$aviso" ]; then
+              gh issue close "$aviso" --comment "El token vuelve a funcionar; las tarjetas se han regenerado. Cierro el aviso."
+            fi
+            caduca=$(grep -i '^github-authentication-token-expiration:' cabeceras.txt | cut -d' ' -f2- | tr -d '\r' || true)
+            if [ -n "$caduca" ]; then
+              dias=$(( ( $(date -d "$caduca" +%s) - $(date +%s) ) / 86400 ))
+              echo "El token caduca el $caduca (quedan $dias días)."
+              if [ "$dias" -le 7 ]; then
+                echo "::warning::METRICS_TOKEN caduca en $dias días ($caduca). Renuévalo para que las tarjetas sigan actualizándose."
+              fi
+            fi
+            exit 0
+          fi
+
+          echo "valido=false" >> "$GITHUB_OUTPUT"
+          echo "::warning::METRICS_TOKEN no es válido (HTTP $estado). Se omite la generación de tarjetas hasta que se renueve."
+          if [ "$estado" = "401" ] || [ "$estado" = "000" ]; then
+            cuerpo=$(cat <<'EOF'
+          El workflow **Generar tarjetas de métricas** no puede autenticarse con el secreto `METRICS_TOKEN` (caducado, revocado o vacío), así que no actualiza `metrics/actividad.svg` ni `metrics/lenguajes.svg`. El perfil sigue mostrando las últimas tarjetas generadas.
+
+          **Cómo arreglarlo (2 minutos):**
+          1. Ve a https://github.com/settings/tokens → *Generate new token (classic)*.
+          2. Nombre: `metrics`. Caducidad: **No expiration** (o la más larga posible).
+          3. Permisos: `repo` y `read:user`.
+          4. Copia el token y pégalo en https://github.com/superjai3/superjai3/settings/secrets/actions → `METRICS_TOKEN` → *Update secret*.
+          5. Lanza el workflow a mano desde la pestaña *Actions* (*Run workflow*).
+
+          Este issue se cerrará solo en cuanto el token vuelva a funcionar.
+          EOF
+            )
+            if [ -z "$aviso" ]; then
+              gh issue create --title "$TITULO_AVISO" --body "$cuerpo"
+            fi
+          fi
+
       - name: Actividad y calendario de contribuciones
+        if: steps.token.outputs.valido == 'true'
         uses: lowlighter/metrics@latest
         with:
           token: ${{ secrets.METRICS_TOKEN }}
@@ -21,10 +83,13 @@ jobs:
           committer_branch: main
           base: ""
           config_timezone: Europe/Madrid
+          retries: 2
+          retries_delay: 30
           plugin_isocalendar: yes
           plugin_isocalendar_duration: full-year
 
       - name: Desglose de lenguajes
+        if: steps.token.outputs.valido == 'true'
         uses: lowlighter/metrics@latest
         with:
           token: ${{ secrets.METRICS_TOKEN }}
@@ -34,6 +99,8 @@ jobs:
           committer_branch: main
           base: ""
           config_timezone: Europe/Madrid
+          retries: 2
+          retries_delay: 30
           # sin esto solo mira los repos publicos y el desglose sale vacio
           repositories: 100
           repositories_affiliations: owner
